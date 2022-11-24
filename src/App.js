@@ -1,1 +1,29 @@
 import './App.css';
+import Header from './components/Header/Header';
+import ShoppingItem from './components/ShoppingItem/ShoppingItem';
+import { useState, useEffect } from 'react';
+
+export default function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function loadItems() {
+      const response = await fetch('https://pokeapi.co/api/v2/item/');
+      const data = await response.json();
+      setItems(data.results);
+      console.log(data.results);
+    }
+    loadItems();
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <ul>
+        {items.map(({ name }) => (
+          <ShoppingItem key={name} name={name} />
+        ))}
+      </ul>
+    </>
+  );
+}
