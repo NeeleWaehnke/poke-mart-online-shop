@@ -8,7 +8,7 @@ export default function App() {
 
   useEffect(() => {
     async function loadItems() {
-      const response = await fetch('https://pokeapi.co/api/v2/item/');
+      const response = await fetch('https://pokeapi.co/api/v2/item?limit=60');
       const data = await response.json();
       setItems(data.results);
       console.log(data.results);
@@ -20,8 +20,8 @@ export default function App() {
     <>
       <Header />
       <section className="item-section">
-        {items.map(({ name }) => (
-          <ShoppingItem key={name} name={name} />
+        {items.map((item) => (
+          <ShoppingItem key={item.name} name={item.name} url={item.url} />
         ))}
       </section>
     </>
