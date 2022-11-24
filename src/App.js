@@ -20,8 +20,8 @@ export default function App() {
     <>
       <Header />
       <section className="item-section">
-        {items.map(({ name }) => (
-          <ShoppingItem key={name} name={name} />
+        {items.map((item) => (
+          <ShoppingItem key={item.name} name={item.name} url={item.url} />
         ))}
       </section>
     </>

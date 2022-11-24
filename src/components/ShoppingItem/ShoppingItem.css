@@ -4,3 +4,7 @@
   width: 45vw;
   flex-basis: auto;
 }
+
+img {
+  image-rendering: pixelated;
+}
