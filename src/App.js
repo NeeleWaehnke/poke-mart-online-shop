@@ -19,11 +19,11 @@ export default function App() {
   return (
     <>
       <Header />
-      <ul>
+      <section className="item-section">
         {items.map(({ name }) => (
           <ShoppingItem key={name} name={name} />
         ))}
-      </ul>
+      </section>
     </>
   );
 }
