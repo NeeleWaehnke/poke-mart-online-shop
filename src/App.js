@@ -1,4 +1,3 @@
-import './App.css';
 import Header from './components/Header/Header';
 import ShoppingItem from './components/ShoppingItem/ShoppingItem';
 import Cart from './components/Cart/Cart';
