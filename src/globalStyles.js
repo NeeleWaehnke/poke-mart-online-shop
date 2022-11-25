@@ -19,10 +19,10 @@ const GlobalStyle = createGlobalStyle`
   };
   
   #root {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
   
-    width: 100%;
+    width: 95%;
     height: 100%;
     align-content: center;
   };
