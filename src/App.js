@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import ShoppingItem from './components/ShoppingItem/ShoppingItem';
 import Cart from './components/Cart/Cart';
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 export default function App() {
   const [items, setItems] = useState([]);
@@ -32,7 +33,7 @@ export default function App() {
         ))}
       </Cart>
 
-      <section className="item-section">
+      <StyledSection>
         {items.map((item) => (
           <ShoppingItem
             key={item.name}
@@ -42,7 +43,17 @@ export default function App() {
             isAddable
           />
         ))}
-      </section>
+      </StyledSection>
     </>
   );
 }
+
+const StyledSection = styled.section`
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-around;
+  row-gap: 5em;
+`;

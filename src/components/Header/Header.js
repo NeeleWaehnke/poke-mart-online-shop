@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default function Header() {
   return (
-    <StyledHeader className="header">
+    <StyledHeader>
       <h1>Poké-Mart</h1>
     </StyledHeader>
   );

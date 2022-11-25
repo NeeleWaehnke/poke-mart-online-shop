@@ -3,7 +3,7 @@
   src: url(./assets/fonts/PokemonSolid.ttf);
 } */
 
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -15,4 +15,4 @@
   justify-content: space-between;
   align-content: space-around;
   row-gap: 5em;
-}
+} */
