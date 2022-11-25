@@ -6,7 +6,7 @@ export default function ShoppingItem({ name, url, onAddItem, isAddable }) {
   const [infos, setInfos] = useState({
     img: '',
     name: '',
-    cost: 100,
+    cost: '?',
     url: '',
   });
   //console.log(infos);
