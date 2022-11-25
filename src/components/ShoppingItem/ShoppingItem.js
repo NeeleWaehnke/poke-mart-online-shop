@@ -6,7 +6,7 @@ export default function ShoppingItem({ name, url, onAddItem, isAddable }) {
   const [infos, setInfos] = useState({
     img: '',
     name: '',
-    cost: 100,
+    cost: '?',
     url: '',
   });
   //console.log(infos);
@@ -27,7 +27,7 @@ export default function ShoppingItem({ name, url, onAddItem, isAddable }) {
 
   return (
     <>
-      <StyledDiv key={name} id={infos.id} className="item">
+      <StyledDiv key={name} id={infos.id}>
         <p>{name}</p>
         <p>{infos.cost} ¥</p>
         <img src={infos.img} width="50px" height="50px" alt="item" />
@@ -46,6 +46,14 @@ export default function ShoppingItem({ name, url, onAddItem, isAddable }) {
 }
 
 const StyledDiv = styled.div`
+  border: 1px solid grey;
+  height: auto;
+  width: 45vw;
+  flex-basis: auto;
+
+  img {
+    image-rendering: pixelated;
+  }
   p {
     font-family: 'PokemonInGame';
   }

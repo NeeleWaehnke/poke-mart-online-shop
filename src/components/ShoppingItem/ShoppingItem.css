@@ -1,17 +1,1 @@
-.item {
-  border: 1px solid grey;
-  height: auto;
-  width: 45vw;
-  flex-basis: auto;
-}
 
-img {
-  image-rendering: pixelated;
-}
-/* @font-face {
-  font-family: 'PokemonText';
-  src: url(../../assets/fonts/PokemonInGame.ttf);
-}
-p {
-  font-family: 'PokemonText';
-} */
