@@ -4,6 +4,7 @@ import Cart from './components/Cart/Cart';
 import Divider from './components/Divider';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { nanoid } from 'nanoid';
 
 export default function App() {
   const [items, setItems] = useState([]);
@@ -20,12 +21,12 @@ export default function App() {
   }, []);
 
   function handleAddItem(item) {
-    setCart([...cart, item]);
+    setCart([...cart, { id: nanoid(), ...item }]);
     console.log(cart);
   }
 
   function handleRemoveItem(item) {
-    setCart(cart.filter((cartItem) => cartItem.id !== item.id));
+    setCart(cart.filter((cartItem) => cartItem.name !== item.name));
   }
 
   return (
@@ -35,6 +36,7 @@ export default function App() {
         {cart.map((cartI) => (
           <ShoppingItem
             key={cartI.name}
+            id={cartI.id}
             name={cartI.name}
             url={cartI.url}
             onRemoveItem={handleRemoveItem}
