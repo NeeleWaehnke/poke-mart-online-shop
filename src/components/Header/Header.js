@@ -1,4 +1,3 @@
-// import './Header.css';
 import styled from 'styled-components';
 
 export default function Header() {
@@ -12,9 +11,14 @@ export default function Header() {
 const StyledHeader = styled.header`
   background-color: #67777e;
   height: 100%;
+  width: 100%;
+  padding: 5px;
   border: 1px solid #67777e;
+  margin-left: 0;
+  margin-right: 0;
   h1 {
     text-align: center;
+    font-size: 40px;
     font-family: 'PokemonSolid';
     color: yellow;
 

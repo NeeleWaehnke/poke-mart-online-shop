@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-export default function ShoppingItem({ name, url, onAddItem, isAddable }) {
+export default function ShoppingItem({
+  name,
+  url,
+  onAddItem,
+  isAddable,
+  onRemoveItem,
+}) {
   const [infos, setInfos] = useState({
     img: '',
     name: '',
@@ -27,17 +33,17 @@ export default function ShoppingItem({ name, url, onAddItem, isAddable }) {
   return (
     <>
       <StyledDiv key={name} id={infos.id}>
-        <p>{name}</p>
-        <p>{infos.cost} ¥</p>
-        <img src={infos.img} width="50px" height="50px" alt="item" />
+        <StyledText>{name}</StyledText>
+        <StyledText>{infos.cost} ¥</StyledText>
+        <img src={infos.img} width="80px" height="80px" alt="item" />
         {isAddable ? (
-          <button type="button" onClick={() => onAddItem(infos)}>
-            <p>Add Item</p>
-          </button>
+          <StyledButton type="button" onClick={() => onAddItem(infos)}>
+            <p>Add Item </p>
+          </StyledButton>
         ) : (
-          <button type="button">
+          <StyledButton type="button" onClick={() => onRemoveItem(infos)}>
             <p>Remove Item</p>
-          </button>
+          </StyledButton>
         )}
       </StyledDiv>
     </>
@@ -47,13 +53,37 @@ export default function ShoppingItem({ name, url, onAddItem, isAddable }) {
 const StyledDiv = styled.div`
   border: 1px solid grey;
   height: auto;
-  width: 45vw;
+  width: auto;
   flex-basis: auto;
+  padding: 3em;
+  padding-bottom: 1em;
+  padding-top: 1.5em;
+  text-align: center;
+  position: relative;
 
   img {
     image-rendering: pixelated;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 15%;
   }
+`;
+
+const StyledText = styled.p`
+  font-family: 'PokemonInGame';
+  text-align: center;
+  margin-top: 5%;
+`;
+
+const StyledButton = styled.button`
+  position: relative;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 10%;
+  text-align: center;
+  justify-content: center;
   p {
     font-family: 'PokemonInGame';
+    text-align: center;
   }
 `;
