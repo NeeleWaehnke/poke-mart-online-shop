@@ -2,23 +2,17 @@ import Header from './components/Header/Header';
 import ShoppingItem from './components/ShoppingItem/ShoppingItem';
 import Cart from './components/Cart/Cart';
 import Divider from './components/Divider';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { nanoid } from 'nanoid';
+import useFetch from './lib/fetch';
 
 export default function App() {
-  const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
 
-  useEffect(() => {
-    async function loadItems() {
-      const response = await fetch('https://pokeapi.co/api/v2/item?limit=60');
-      const data = await response.json();
-      setItems(data.results);
-      //console.log(data.results);
-    }
-    loadItems();
-  }, []);
+  const data = useFetch('https://pokeapi.co/api/v2/item?limit=60');
+  if (!data) return null;
+  const items = data.results;
 
   function handleAddItem(item) {
     setCart([...cart, { id: nanoid(), ...item }]);
@@ -35,7 +29,7 @@ export default function App() {
       <Cart>
         {cart.map((cartI) => (
           <ShoppingItem
-            key={cartI.name}
+            key={cartI.id}
             id={cartI.id}
             name={cartI.name}
             url={cartI.url}

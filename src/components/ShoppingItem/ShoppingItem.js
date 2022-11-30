@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import useFetch from '../../lib/fetch';
 
 export default function ShoppingItem({
   name,
@@ -8,28 +8,16 @@ export default function ShoppingItem({
   isAddable,
   onRemoveItem,
 }) {
-  const [infos, setInfos] = useState({
-    img: '',
-    name: '',
-    cost: '?',
-    url: '',
-  });
-  //console.log(infos);
-  useEffect(() => {
-    async function loadInfos() {
-      const response = await fetch(url);
-      const data = await response.json();
+  const data = useFetch(url);
+  if (!data) return null;
+  const infos = {
+    img: data.sprites.default,
+    name: data.name,
+    cost: data.cost,
+    url: url,
+  };
 
-      setInfos({
-        img: data.sprites.default,
-        name: data.name,
-        cost: data.cost,
-        url: url,
-      });
-    }
-    loadInfos();
-  }, [url]);
-
+  console.log(infos);
   return (
     <>
       <StyledDiv key={name} id={infos.id}>

@@ -16,7 +16,7 @@ const StyledCart = styled.section`
   flex-direction: row;
   column-gap: 5px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-content: space-around;
   row-gap: 2em;
   margin-bottom: 5em;
