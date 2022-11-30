@@ -34,7 +34,7 @@ export default function ShoppingItem({
     <>
       <StyledDiv key={name} id={infos.id}>
         <StyledText>{name}</StyledText>
-        <StyledText>{infos.cost} ¥</StyledText>
+        <StyledText>{infos.cost === 0 ? 300 : infos.cost} ¥</StyledText>
         <img src={infos.img} width="80px" height="80px" alt="item" />
         {isAddable ? (
           <StyledButton type="button" onClick={() => onAddItem(infos)}>
